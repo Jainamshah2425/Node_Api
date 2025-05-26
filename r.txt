@@ -1,0 +1,18 @@
+school-management-api/
+├── config/
+│   └── database.js
+├── controllers/
+│   └── schoolController.js
+├── models/
+│   └── schoolModel.js
+├── routes/
+│   └── schoolRoutes.js
+├── middleware/
+│   └── validation.js
+├── utils/
+│   └── distanceCalculator.js
+├── .env
+├── .gitignore
+├── package.json
+├── server.js
+└── README.md

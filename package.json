@@ -1,4 +1,8 @@
 {
+
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "name": "school-management-api",
   "version": "1.0.0",
   "description": "School Management API with proximity-based sorting",

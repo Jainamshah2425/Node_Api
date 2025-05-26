@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const { testConnection } = require('./config/database');
 const schoolRoutes = require('./routes/schoolRoutes');
+const { testConnection } = require('./database'); 
 
 const app = express();
 const PORT = process.env.PORT || 3000;

@@ -3,7 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 require('dotenv').config();
 
-const { testConnection } = require('./config/database');
+
 const schoolRoutes = require('./routes/schoolRoutes');
 const { testConnection } = require('./database'); 
 

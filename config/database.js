@@ -29,6 +29,37 @@ const pool = mysql.createPool(
 // Create promise-based connection
 const promisePool = pool.promise();
 
+// Initialize database tables
+const initializeDatabase = async () => {
+    try {
+        const connection = await promisePool.getConnection();
+        
+        // Create schools table
+        const createSchoolsTable = `
+            CREATE TABLE IF NOT EXISTS schools (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                address VARCHAR(500) NOT NULL,
+                latitude DECIMAL(10, 8) NOT NULL,
+                longitude DECIMAL(11, 8) NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                
+                INDEX idx_location (latitude, longitude),
+                INDEX idx_name (name)
+            )
+        `;
+        
+        await connection.execute(createSchoolsTable);
+        console.log('📚 Schools table ready');
+        
+        connection.release();
+    } catch (error) {
+        console.error('❌ Database initialization failed:', error.message);
+        throw error;
+    }
+};
+
 // Test database connection
 const testConnection = async () => {
     try {
@@ -43,6 +74,10 @@ const testConnection = async () => {
         }
         
         connection.release();
+        
+        // Initialize database tables after successful connection
+        await initializeDatabase();
+        
     } catch (error) {
         console.error('❌ Database connection failed:', error.message);
         console.error('Connection details:', {

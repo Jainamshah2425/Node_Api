@@ -6,12 +6,15 @@ API Base URL: https://sincere-gratitude-production-1408.up.railway.app
 
 📋 Features
 Add new schools with location data
+![image](https://github.com/user-attachments/assets/c072f292-a7be-40ee-84cb-17bf23483d67)
 
 Retrieve schools sorted by proximity to user location
+![image](https://github.com/user-attachments/assets/4a6759fd-cb80-4214-8086-978dbb282be6)
 
 Input validation and error handling
 
 MySQL database integration
+![image](https://github.com/user-attachments/assets/efcf3af6-7bb2-4df4-b317-154993a2f81b)
 
 CORS and security middleware
 
